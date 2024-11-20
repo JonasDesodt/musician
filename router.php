@@ -22,12 +22,13 @@
         private function handle_home(string $uri)
         {
             require 'controllers/home_controller.php';
+            require 'services/curl_service.php';
 
             switch (true) {
                 case $uri === '':
                 case $uri === '/': 
                 case $uri === '/home':
-                    return (new HomeController)->index();   
+                    return (new HomeController(new CurlService))->index();   
 
                 default:
                     return $this->handle_404();   
@@ -54,7 +55,7 @@
 
         private function handle_404(){
             $view_path = 'views/error/404.php';
-            
+
             $title = 'Page not found';
 
             return compact('view_path', 'title');
