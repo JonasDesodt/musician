@@ -1,6 +1,4 @@
 <?php
-    //require('services/curl_service.php'); //scope this
-
     class HomeController
     {  
         private $curlService;

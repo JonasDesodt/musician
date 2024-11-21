@@ -1,7 +1,7 @@
 <?php
     class Router
     {
-        public function delegate(string $uri)
+        public function handle(string $uri)
         {
             $segments = explode('/', trim($uri, '/'));
         

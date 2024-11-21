@@ -3,11 +3,9 @@
     {
         public function run($layout_path)    
         {
-            // https://www.php.net/manual/en/book.curl.php
-
             require('router.php');
 
-            $context = (new Router)->delegate($_SERVER['REQUEST_URI']);           
+            $context = (new Router)->handle($_SERVER['REQUEST_URI']);           
 
             $this->renderLayout($layout_path, $context);
         }
